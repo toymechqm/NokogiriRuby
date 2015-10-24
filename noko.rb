@@ -14,11 +14,11 @@ def count_frequency(word_list)
   @counts
 end
 
-doc = Nokogiri::HTML(open('https://www.google.com/#q=cats'))
+doc = Nokogiri::HTML(open('https://www.google.com/#q=%22Joshua+Toy%22'))
 
 ####
 # Search for nodes by css
-entries = doc.css('p')
+entries = doc.css('span.st')
 puts "Parsing #{entries.length} entries"
 entries.each do |entry|
   words = words_from_string(entry.content)
